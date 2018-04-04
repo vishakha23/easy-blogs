@@ -1,0 +1,19 @@
+<md-toolbar flex class="header md-whiteframe-30dp" scroll-shrink layout="row" layout-padding layout-align="space-between end ">
+    <div layout="row">
+        <img class="sidebar-image" ng-src="{{$ctrl.getLogo()}}">
+        <h2>
+            <span>iBlog</span>
+        </h2>
+    </div>
+
+
+    <md-nav-bar md-selected-nav-item="currentNavItem " nav-bar-aria-label="navigation links ">
+        <md-nav-item md-nav-sref="home" name="page1">Home</md-nav-item>
+        <md-nav-item md-nav-sref="createPost" name="page3">Create Post</md-nav-item>
+        <md-nav-item ng-hide="$ctrl.isLoggedIn" md-nav-sref="login" name="page4">Sign-in</md-nav-item>
+        <md-nav-item md-nav-sref="#" ng-show="$ctrl.isLoggedIn" ng-click="$ctrl.logout()" name="page5">Logout</md-nav-item>
+        <md-nav-item md-nav-sref="about" name="page2">About Me</md-nav-item>
+    </md-nav-bar>
+
+
+</md-toolbar>

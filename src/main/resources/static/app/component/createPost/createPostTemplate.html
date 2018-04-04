@@ -1,0 +1,26 @@
+<md-content layout-padding>
+    <div layout="column">
+        <form class="createPostForm" name="createPostForm" novalidate>
+            <md-input-container flex-gt-sm>
+                <label>Title</label>
+                <input type="text" md-maxlength="200" placeholder="Title" name="Title" ng-model="$ctrl.newPost.title">
+            </md-input-container>
+            <md-input-container flex-gt-sm>
+                <label>Featured Image URL</label>
+                <input type="text" ng-model="$ctrl.newPost.imageUrl" placeholder="Enter Image URL">
+            </md-input-container>
+            <md-input-container flex-gt-sm>
+                <label>Tagline</label>
+                <input md-maxlength="200" type="text" ng-model="$ctrl.newPost.tagLine" placeholder="Enter a tagline">
+            </md-input-container>
+            <md-input-container>
+                <label>Body</label>
+                <textarea name="body" id="post-body" placeholder="Body" ng-model="$ctrl.newPost.content"></textarea>
+            </md-input-container>
+            <div layout="row" layout-align="center center">
+                <md-button type="submit" ng-click="$ctrl.addPost()" class="md-raised md-primary">Submit</md-button>
+                <md-button type="clear" ng-click="$ctrl.clearContent()" class="md-raised md-primary">Reset</md-button>
+            </div>
+        </form>
+    </div>
+</md-content>

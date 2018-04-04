@@ -1,0 +1,89 @@
+<md-content class="md-padding" layout="column" layout-margin="10px">
+
+    <!----------------------------------------center content---------------------------------------------------------------->
+
+    <div style="overflow: hidden;" layout="column">
+        <div>
+            <h1 class="md-display-3"><b>{{$ctrl.currentPost.title}}</b></h1>
+            <h3>{{$ctrl.currentPost.tagLine}}</h3>
+            <md-divider></md-divider>
+
+            <!--           middle layer icons-->
+            <div layout="row" style="justify-content: space-between;">
+                <div layout="column" layout-align="start start">
+                    <h4>@{{$ctrl.currentPost.user.username}}</h4>
+                    <h5>{{$ctrl.currentPost.createdAt | date}}</h5>
+                </div>
+                <div layout="row">
+                    <md-icon md-font-icon="fa fa-facebook fa-2x card-action"></md-icon>
+                    <br><br>
+                    <md-icon md-font-icon="fa fa-twitter fa-2x card-action"></md-icon>
+                    <br><br>
+                    <md-icon md-font-icon="fa fa-comments fa-2x card-action"></md-icon>
+                </div>
+
+
+            </div>
+            <md-divider></md-divider>
+            <br>
+            <img class="post-image" ng-src="{{$ctrl.currentPost.imageUrl}}" alt="user avatar">
+            <cite style="float:right;">by {{$ctrl.currentPost.user.fullName}} on {{$ctrl.currentPost.createdAt | date}}</cite>
+        </div>
+        <div layout="column" class="post-display">
+            <p class="post-content" ng-bind-html="$ctrl.to_trusted($ctrl.currentPost.content)"> </p>
+            <br>
+            <div layout-align="start start" layout="row">
+                <div>
+                    <md-button class="md-icon-button md-accent" aria-label=" Use Android" style=" font-size: 38px; " ng-click="$ctrl.currentPost.likes = $ctrl.currentPost.likes+1">
+                        <i class="glyphicon" ng-class="(like.userVotes==1) ? 'glyphicon-heart' : 'glyphicon-heart-empty'"></i>
+                    </md-button>
+                </div>
+                <div>
+                    <h1> {{$ctrl.currentPost.likes}}</h1>
+                </div>
+            </div>
+
+            <div layout-align="start start" layout="row">
+                <div>
+                    <md-button class="md-icon-button" aria-label=" Use Android" style=" font-size: 30px; " ng-click="$ctrl.currentPost.likes = $ctrl.currentPost.likes+1">
+                        <md-icon md-font-icon="fa fa-comment "></md-icon>
+                    </md-button>
+                </div>
+                <div>
+                    <h2 class="md-headline ">Comments</h2>
+                </div>
+            </div>
+
+            <md-divider></md-divider>
+            <md-list flex>
+                <md-subheader class="md-no-sticky ">{{$ctrl.currentPost.comments.length}} Comments</md-subheader>
+
+                <md-list-item class="md-3-line" ng-repeat="comment in $ctrl.currentPost.comments ">
+                    <md-icon md-font-icon="fa fa-user fa-3x "></md-icon>
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{comment.user.fullName}}</h3>
+                        <p>{{comment.text }}</p>
+                    </div>
+                    <md-divider ng-if="!$last "></md-divider>
+                </md-list-item>
+            </md-list>
+            <md-divider></md-divider>
+
+            <!----------------------------------------comment content box---------------------------------------------------------------->
+
+            <form name="commentForm">
+                <md-input-container class="md-block ">
+                    <label>Comment :</label>
+                    <textarea name="body " ng-model="$ctrl.newComment" placeholder="Add a Comment " rows="3 " md-select-on-focus required></textarea>
+                    <md-button ng-disabled="commentForm.$invalid" type="submit " ng-click="$ctrl.postComment() " class="md-raised md-primary ">Post Comment</md-button>
+                </md-input-container>
+            </form>
+        </div>
+        <!----------------------------------------side content---------------------------------------------------------------->
+
+        <h2 class="md-headline ">Related Articles</h2>
+        <div layout="row">
+            <post-summary posts="$ctrl.posts" type="related" class="flex-container shorthand"></post-summary>
+        </div>
+    </div>
+</md-content>

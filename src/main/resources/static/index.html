@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="iBlog">
+
+<head>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.css">
+    <link rel="stylesheet" href="assets/js/wysiwyg/dist/bootstrap3-wysihtml5.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:500,700" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link data-require="angular-material@0.10.0" data-semver="0.10.1" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.10.1/angular-material.min.css" />
+    <link data-require="font-awesome@4.3.0" data-semver="4.3.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/timeline.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--    <-->
+    <title> iBlog</title>
+</head>
+
+<body>
+
+    <!-- AngularJS Material Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.9/angular-sanitize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-storage/0.0.15/angular-storage.js"></script>
+
+    <script data-require="lodash.js@3.5.0" data-semver="3.5.0" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.js"></script>
+    <!--link rel="stylesheet" href="style.css" /-->
+
+
+    <script src="http://bootstrap-wysiwyg.github.io/bootstrap3-wysiwyg/components/wysihtml5x/dist/wysihtml5x-toolbar.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js"></script>
+    <script src="assets/js/wysiwyg/dist/bootstrap3-wysihtml5.all.min.js"></script>
+    <script src="assets/js/wysiwyg/dist/bootstrap3-wysihtml5.min.js"></script>
+
+    <!-- iBlog App scripts -->
+    <script src="app/app.js"></script>
+    <script src="app/app.route.js"></script>
+    <!--Services-->
+
+
+    <script src="app/services/postService.js"></script>
+    <script src="app/services/userService.js"></script>
+    <script src="app/services/msgDialogService.js"></script>
+
+    <!--
+    <script src="services/DataService.js"></script>
+-->
+
+    <!--Components-->
+    <script src="app/component/Home/HomeComponent.js"></script>
+
+    <!--    <script src="component/Navbar/NavbarComponent.js"></script>-->
+    <script src="app/component/Post/PostComponent.js"></script>
+    <script src="app/component/about/aboutComponent.js"></script>
+    <script src="app/component/login/loginComponent.js"></script>
+    <script src="app/component/createPost/createPostComponent.js"></script>
+    <script src="app/component/PostSummary/PostSummaryComponent.js"></script>
+    <script src="app/component/navbar/navbarComponent.js"></script>
+
+
+    <navbar></navbar>
+    <ui-view></ui-view>
+</body>
+
+</html>

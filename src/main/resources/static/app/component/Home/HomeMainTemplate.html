@@ -1,0 +1,34 @@
+<div layout="row">
+    <div flex="100" flex-gt-sm="75" flex-order="1" layout="column">
+        <div class='md-padding' layout="column" layout-wrap>
+            <md-card ng-click="$ctrl.onPostSelect($ctrl.posts[0])">
+                <img ng-src="{{$ctrl.posts[0].imageUrl}}" class="md-card-image ng-cloak" alt="user avatar">
+                <div layout="column" class="post-content-div">
+                    <div>
+                        <h1 class="h1-display" style="text-align:left"><b>{{$ctrl.posts[0].title}}</b></h1>
+                    </div>
+                    <md-divider ng-if="!$last "></md-divider>
+                    <div>
+                        <h3>{{$ctrl.posts[0].tagLine}}</h3>
+                    </div>
+                    <div>
+                        <h3 class="md-subhead">By : {{$ctrl.posts[0].user.fullName}},{{$ctrl.posts[0].createdAt | date}}</h3>
+                    </div>
+                </div>
+                <md-card-actions layout="row" layout-align="end end">
+                    <p class="fa fa-comment push-left fa-2x"> {{$ctrl.posts[0].comments.length}}
+                    </p>
+                    <p class="fa fa-heart push-right fa-2x"> {{$ctrl.posts[0].likes}}
+                    </p>
+                </md-card-actions>
+            </md-card>
+        </div>
+
+        <post-summary posts="$ctrl.posts" type="featured" class="flex-container shorthand"></post-summary>
+    </div>
+
+    <div flex="25" flex-order="2" class="flex-container shorthand-column" hide-sm>
+        <h2>Business</h2>
+        <post-summary posts="$ctrl.posts" type="business"></post-summary>
+    </div>
+</div>

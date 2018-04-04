@@ -1,0 +1,14 @@
+<md-card layout="column" class="post-summary" layout-align="space-between end" flex ng-repeat="post in $ctrl.filteredPosts()" ng-click="$ctrl.onPostSelect(post)">
+    <img ng-src="{{post.imageUrl}}" class="md-card-image ng-cloak" alt="user avatar">
+    <md-card-content>
+        <h2>{{post.title}}</h2>
+        <p ng-bind-html="post.tagLine |limitTo:30"></p>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end end">
+        <span class="fa fa-comment card-action"> {{post.comments.length}}
+        </span>
+
+        <span class="fa fa-heart card-action"> {{post.likes}}
+        </span>
+    </md-card-actions>
+</md-card>

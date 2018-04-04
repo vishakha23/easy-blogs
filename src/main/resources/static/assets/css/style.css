@@ -1,0 +1,119 @@
+.post-header {
+    text-align: center;
+}
+
+html,
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.form-font {
+    font-family: 'Raleway', sans-serif;
+}
+
+.post-content p {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.post-image {
+    max-width: 1200px;
+    max-height: 600px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.post-display {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+md-input-container-new {
+    border-color: black;
+    padding-top: 1px;
+    padding-right: 1px;
+    padding-bottom: 2px;
+    padding-left: 1px;
+}
+
+.post-content img {
+    max-width: 600px;
+    max-height: 300px;
+}
+
+
+.createPostForm label {
+    height: 20px;
+}
+
+.fluid-width-video-wrapper {
+    width: 100%;
+    position: relative;
+    padding: 0 !important;
+    height: 400px;
+}
+
+.fluid-width-video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.post-content-div {
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+.h1-display {
+    font-size: 4rem;
+}
+
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.shorthand {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.shorthand-column {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.card-action {
+    padding: 5px !important;
+}
+
+.post-summary {
+    padding: 5px;
+}
+
+.sidebar-image {
+    width: 60px;
+    height: 50px;
+}
