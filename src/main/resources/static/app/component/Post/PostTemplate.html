@@ -11,15 +11,22 @@
             <!--           middle layer icons-->
             <div layout="row" style="justify-content: space-between;">
                 <div layout="column" layout-align="start start">
-                    <h4>@{{$ctrl.currentPost.user.username}}</h4>
+                    <h4>{{$ctrl.currentPost.user.fullName}},@{{$ctrl.currentPost.user.username}}</h4>
                     <h5>{{$ctrl.currentPost.createdAt | date}}</h5>
                 </div>
+                <div layout="column">
+                    <div></div>
+                    <h4>{{$ctrl.currentPost.comments.length}} Comments</h4>
+
+                </div>
+
+
                 <div layout="row">
-                    <md-icon md-font-icon="fa fa-facebook fa-2x card-action"></md-icon>
+                    <md-icon md-font-icon="fa fa-facebook fa-2x card-action-post"></md-icon>
                     <br><br>
-                    <md-icon md-font-icon="fa fa-twitter fa-2x card-action"></md-icon>
+                    <md-icon md-font-icon="fa fa-twitter fa-2x card-action-post"></md-icon>
                     <br><br>
-                    <md-icon md-font-icon="fa fa-comments fa-2x card-action"></md-icon>
+                    <md-icon md-font-icon="fa fa-comments fa-2x card-action-post"></md-icon>
                 </div>
 
 
@@ -56,9 +63,9 @@
 
             <md-divider></md-divider>
             <md-list flex>
-                <md-subheader class="md-no-sticky ">{{$ctrl.currentPost.comments.length}} Comments</md-subheader>
+                <md-button class="md-no-sticky" ng-click="$ctrl.onCommentCLick()">view all Comments</md-button>
 
-                <md-list-item class="md-3-line" ng-repeat="comment in $ctrl.currentPost.comments ">
+                <md-list-item class="md-3-line" ng-repeat="comment in $ctrl.currentPost.comments" ng-show="$ctrl.viewComments">
                     <md-icon md-font-icon="fa fa-user fa-3x "></md-icon>
                     <div class="md-list-item-text" layout="column">
                         <h3>{{comment.user.fullName}}</h3>

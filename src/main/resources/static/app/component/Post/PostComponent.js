@@ -19,13 +19,29 @@ angular.module('iBlog')
                 })
             };
 
-            this.onPostSelect = function (post) {
+
+            var noComments = true;
+
+            if (ctrl.comments == undefined) {
+                this.noComments = false;
+            } else {
+                this.noComments = true;
+            }
+
+            var viewComments = false;
+            this.onCommentCLick = function () {
+
+                this.viewComments = true;
+            }
+
+            this.on = function (post) {
                 $state.go("post", {
                     "postId": post.id
                 }, {
                     reload: true
                 });
             }
+
 
             var createComment = function (text) {
                 var comment = {
