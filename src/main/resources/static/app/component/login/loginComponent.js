@@ -21,7 +21,7 @@ angular.module('iBlog')
                         store.set('user_secret', response.token);
                         store.set('current_user', ctrl.user);
 
-                        $rootScope.$broadcast('user:login')
+                        $rootScope.$broadcast('user:login');
                         $state.go('createPost', {
                             "currentUser": response.user
                         });

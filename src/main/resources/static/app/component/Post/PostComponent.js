@@ -2,15 +2,19 @@ angular.module('iBlog')
     .component('post', {
         templateUrl: 'app/component/Post/PostTemplate.html',
         bindings: {},
-        controller: function (postService, msgDialogService, $stateParams, $state, $sce, store) {
+        controller: function (postService, msgDialogService, $stateParams, $state, $sce, store, $scope) {
             var ctrl = this;
             this.newComment = null;
+            this.showComments = false;
+            this.isLoggedIn = false;
             this.$onInit = function () {
+                this.isLoggedIn = store.get('current_user') && true;
                 postService.getPost($stateParams.postId).then(function (data) {
                     if (!data) {
                         msgDialogService.showError("Post does not exist !");
                     }
                     ctrl.currentPost = data;
+                    ctrl.showComments = ctrl.currentPost.comments && ctrl.currentPost.comments.length > 0;
                 }).catch(function (err) {
                     msgDialogService.showError("Post does not exist !");
                 });
@@ -18,20 +22,18 @@ angular.module('iBlog')
                     ctrl.posts = data;
                 })
             };
+            var currentInstance = this;
+            $scope.$on('user:login', function (event, data) {
+                currentInstance.isLoggedIn = true;
+            });
 
+            $scope.$on('user:logout', function (event, data) {
+                currentInstance.isLoggedIn = false;
+            });
 
-            var noComments = true;
-
-            if (ctrl.comments == undefined) {
-                this.noComments = false;
-            } else {
-                this.noComments = true;
-            }
-
-            var viewComments = false;
+            this.viewComments = false;
             this.onCommentCLick = function () {
-
-                this.viewComments = true;
+                this.viewComments = !this.viewComments;
             }
 
             this.on = function (post) {
@@ -55,14 +57,10 @@ angular.module('iBlog')
                 return $sce.trustAsHtml(html_code);
             }
             this.postComment = function () {
-                if (!store.get('current_user')) {
-                    msgDialogService.showError("Please log-in to comment !");
-                    return;
-                }
                 postService.addComment(createComment()).then(function (data) {
-                    msgDialogService.showInfo("Send comment !");
+                    $state.reload();
                 }).catch(function (err) {
-                    msgDialogService.showError("Something went wrong !");
+                    console.log("Something went wrong !");
                 });
             }
             this.filterRelatedArticles = function (post) {
