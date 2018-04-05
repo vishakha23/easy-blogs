@@ -9,8 +9,6 @@ angular.module('iBlog').config(function ($stateProvider, $urlServiceProvider, $u
             'main@home': {
                 templateUrl: '/app/component/Home/HomeMainTemplate.html',
             }
-
-
         }
     });
 

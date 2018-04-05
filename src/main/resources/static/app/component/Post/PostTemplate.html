@@ -17,9 +17,7 @@
                 <div layout="column">
                     <div></div>
                     <h4>{{$ctrl.currentPost.comments.length}} Comments</h4>
-
                 </div>
-
 
                 <div layout="row">
                     <md-icon md-font-icon="fa fa-facebook fa-2x card-action-post"></md-icon>
@@ -28,8 +26,6 @@
                     <br><br>
                     <md-icon md-font-icon="fa fa-comments fa-2x card-action-post"></md-icon>
                 </div>
-
-
             </div>
             <md-divider></md-divider>
             <br>
@@ -62,7 +58,7 @@
             <md-list flex>
                 <span ng-hide="$ctrl.isLoggedIn" class="md-headline">
                     Please <a ui-sref="login">sign-in</a> to comment! </span>
-                <md-list-item class="md-3-line" ng-repeat="comment in $ctrl.currentPost.comments" ng-show="$ctrl.viewComments">
+                <md-list-item class="md-3-line" ng-repeat="comment in $ctrl.currentPost.comments|orderBy: 'createdAt' " ng-show="$ctrl.viewComments">
                     <md-icon md-font-icon="fa fa-user fa-3x "></md-icon>
                     <div class="md-list-item-text" layout="column">
                         <h3>{{comment.user.fullName}}</h3>
